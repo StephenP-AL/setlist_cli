@@ -32,8 +32,10 @@ public:
 //	Song(std::string title, std::string composer, std::string key, std::string genre, bool archive, int length, int tempo, int intro);
 	void setTitle(std::string title);
 	std::string getTitle();
-		
-
+	void setComposer(std::string composer);	
+	std::string getComposer();
+	void setKey(std::string key);
+	std::string getKey();
 
 
 };
