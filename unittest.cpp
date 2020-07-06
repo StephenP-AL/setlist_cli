@@ -17,9 +17,11 @@ using namespace std;
 
 int main(void){
 	// Song class tests
+cout << "*-------Testing Song class functions" << endl;
 Song test;
 string blerg;
 blerg = "ploop";
+bool boof = true;
 
 // Title
 
@@ -58,5 +60,27 @@ else
 	cout << "Fail" << endl; 
 }
 
+// Archive
+test.setArchive(boof);
+cout << "Song Archive set/get: ";
+if(test.isArchive() )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+test.toggleArchive();
+cout << "Song Archive toggle: ";
+if(test.isArchive() )
+{
+	cout << "Fail" << endl; 
+}
+else
+{
+	cout << "Pass" << endl; 
+}
 
+return 0;
 }

@@ -79,3 +79,26 @@ std::string Song::getKey()
 	return (Key);
 }
 
+void Song::setArchive(bool archive)
+{
+	Archive = archive;
+	return;
+}
+
+void Song::toggleArchive()
+{
+	if(Archive )
+	{
+		Archive = false; 
+	}
+	else
+	{
+		Archive = true; 
+	}
+	return;	
+}
+
+bool Song::isArchive()
+{
+	return (Archive);
+}
