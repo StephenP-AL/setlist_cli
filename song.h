@@ -22,9 +22,9 @@ private:
 	std::string Key;
 	std::string Genre;
 	bool Archive;
-	int Length;
+	unsigned int Length;
 	int Tempo;
-	int Intro;
+	unsigned int Intro;
 
 public:
 	Song();
@@ -39,7 +39,10 @@ public:
 	void setArchive(bool archive);
 	void toggleArchive();
 	bool isArchive();
-
+	void setLength(unsigned int length);
+	unsigned int getLength();
+	void setTempo(int tempo);
+	int getTempo();
 
 };
 #endif

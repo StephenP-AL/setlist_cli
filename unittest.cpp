@@ -22,6 +22,7 @@ Song test;
 string blerg;
 blerg = "ploop";
 bool boof = true;
+int yerp = 9001;
 
 // Title
 
@@ -81,6 +82,31 @@ else
 {
 	cout << "Pass" << endl; 
 }
+
+// Length
+test.setLength(yerp);
+cout << "Song Length set/get: ";
+if(test.getLength() == yerp )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+// Tempo
+test.setTempo(yerp);
+cout << "Song Tempo set/get: ";
+if(test.getTempo() == yerp )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
 
 return 0;
 }

@@ -102,3 +102,26 @@ bool Song::isArchive()
 {
 	return (Archive);
 }
+
+void Song::setLength(unsigned int length)
+{
+	Length = length;
+	return;
+}
+
+unsigned int Song::getLength()
+{
+	return (Length);
+}
+
+void Song::setTempo(int tempo)
+{
+	Tempo = tempo;
+	return;
+}
+
+int Song::getTempo()
+{
+	return (Tempo);
+}
+
