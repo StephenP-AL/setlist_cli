@@ -125,3 +125,13 @@ int Song::getTempo()
 	return (Tempo);
 }
 
+void Song::setIntro(unsigned int intro)
+{
+	Intro = intro;
+	return;
+}
+
+unsigned int Song::getIntro()
+{
+	return(Intro);
+}

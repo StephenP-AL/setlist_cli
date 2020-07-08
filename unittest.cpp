@@ -107,6 +107,17 @@ else
 	cout << "Fail" << endl; 
 }
 
+// Intro
+test.setIntro(yerp);
+cout << "Song Intro set/get: ";
+if(test.getTempo() == yerp )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
 
 return 0;
 }

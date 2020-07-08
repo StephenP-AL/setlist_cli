@@ -43,6 +43,8 @@ public:
 	unsigned int getLength();
 	void setTempo(int tempo);
 	int getTempo();
+	void setIntro(unsigned int intro);
+	unsigned int getIntro();
 
 };
 #endif
