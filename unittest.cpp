@@ -152,6 +152,54 @@ else
 {
 	cout << "Fail" << endl; 
 }
+// Timestore
+timestore ts1;
+cout << "*--------Timestore class" << endl;
+i = 2;
+//Gets and sets
+cout << "Timestore Hour get/set: ";
+ts1.setHour(i);
+if(ts1.getHour() == i )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+cout << "Timestore Minute get/set: ";
+ts1.setMinute(i);
+if(ts1.getMinute() == i )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+cout << "Timestore Second get/set: ";
+ts1.setSecond(i);
+if(ts1.getSecond() == i )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+// Parameterized (seconds only)
+i = 7349;
+timestore ts2(i);
+cout << "Paramaterized constructor (seconds only) [" << ts2.getHour() << ":" << ts2.getMinute() << ":" << ts2.getSecond() << "]: ";
+if(ts2.getHour() == 2 && ts2.getMinute() == 2 && ts2.getSecond() == 29 )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
 
 return 0;
 }
