@@ -8,6 +8,7 @@
 
 using namespace std;
 
+/* This class probably is necessary, but I'll leave it here just in case
 class timestore
 {
 	private:
@@ -28,8 +29,10 @@ class timestore
 		unsigned int getSecond();
 
 };
+*/
 unsigned int sectohr(unsigned int seconds);
 unsigned int remmin(unsigned int seconds);
 unsigned int remsec(unsigned int seconds);
+unsigned int addseconds(unsigned int hour, unsigned int minute, unsigned int second);
 
 #endif

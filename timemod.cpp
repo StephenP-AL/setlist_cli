@@ -10,6 +10,7 @@
 
 using namespace std;
 
+/* timestore class unused
 // Default constructor
 timestore::timestore()
 {
@@ -73,7 +74,7 @@ unsigned int timestore::getSecond()
 {
 	return(Second);
 }
-
+*/
 
 
 unsigned int sectohr(unsigned int seconds)
@@ -89,4 +90,9 @@ unsigned int remmin(unsigned int seconds)
 unsigned int remsec(unsigned int seconds)
 {
 	return (seconds % 60);
+}
+
+unsigned int addseconds(unsigned int hour, unsigned int minute, unsigned int second)
+{
+	return((hour * 3600) + (minute * 60) + second);
 }

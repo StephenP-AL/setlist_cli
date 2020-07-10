@@ -152,6 +152,17 @@ else
 {
 	cout << "Fail" << endl; 
 }
+cout << "Timemod addseconds: ";
+if(addseconds(2,2,29) == i )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+/* Unused class
 // Timestore
 timestore ts1;
 cout << "*--------Timestore class" << endl;
@@ -200,6 +211,7 @@ else
 {
 	cout << "Fail" << endl; 
 }
+*/
 
 return 0;
 }
