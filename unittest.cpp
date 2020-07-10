@@ -3,6 +3,7 @@
  */
 
 // Headers
+#include "timemod.h"
 #include "song.h"
 #include <iostream>
 #include <string.h>
@@ -111,6 +112,39 @@ else
 test.setIntro(yerp);
 cout << "Song Intro set/get: ";
 if(test.getTempo() == yerp )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+// Timemod
+cout << "*--------Testing Time modifiers" << endl;
+unsigned int i=7349;
+cout << "Timemod sectohr [" << sectohr(i) << "]: ";
+if(sectohr(i) == 2 )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+cout << "Timemod remmin [" << remmin(i) << "]: ";
+if(remmin(i) == 2 )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+cout << "Timemod remsec [" << remsec(i) << "]: ";
+if(remsec(i) == 29 )
 {
 	cout << "Pass" << endl; 
 }
