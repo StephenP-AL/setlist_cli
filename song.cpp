@@ -13,7 +13,8 @@ using namespace std;
 
 // Constructors
 
-Song::Song(){
+Song::Song()
+{
 //	Archive = false;
 	Title = "";
 	Composer = "";

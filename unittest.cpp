@@ -7,7 +7,7 @@
 #include "song.h"
 #include <iostream>
 #include <string.h>
-
+#include "catalog.h"
 using namespace std;
 
 //Preprocessor Definitions
@@ -212,6 +212,8 @@ else
 	cout << "Fail" << endl; 
 }
 */
+
+Catalog testcatalog();
 
 return 0;
 }
