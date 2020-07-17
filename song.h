@@ -45,6 +45,6 @@ public:
 	int getTempo();
 	void setIntro(unsigned int intro);
 	unsigned int getIntro();
-
+	std::string toString();
 };
 #endif

@@ -15,12 +15,17 @@ Catalog::~Catalog()
 {
 }
 //		Catalog duplicate();
-void Catalog::add(Song *i)
+void Catalog::addSong(Song *i)
 {
 	cat.push_back(i);
+	cout << i->getTitle() << endl;
 	return;
 }
-//		void sort();
+void Catalog::sort()
+{
+	cout << "Sort function" << endl;
+	return;
+}
 //		void shuffle();
 //		Song getsong();
 

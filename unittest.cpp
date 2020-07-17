@@ -120,6 +120,21 @@ else
 	cout << "Fail" << endl; 
 }
 
+// To String
+std::string tostr;
+tostr = blerg + " | " + blerg;
+cout << "Song to string: ";
+if(test.toString().compare(tostr) == 0)
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+
+
 // Timemod
 cout << "*--------Testing Time modifiers" << endl;
 unsigned int i=7349;
@@ -161,6 +176,8 @@ else
 {
 	cout << "Fail" << endl; 
 }
+
+
 
 /* Unused class
 // Timestore
@@ -213,7 +230,18 @@ else
 }
 */
 
-Catalog testcatalog();
+// This still needs a lot of work
+Catalog testcatalog;
+for(int  j = 0; j < 5; j++)
+{
+	Song *songptr = new Song();
+	std::string s = "Song" + to_string(j);
+	cout << s << endl;
+}
+
+Song *songptr = new Song();
+songptr->setTitle("yurp");
+testcatalog.addSong(songptr);
 
 return 0;
 }

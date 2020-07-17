@@ -20,8 +20,8 @@ class Catalog
 		Catalog();
 		~Catalog();
 //		Catalog duplicate();
-		void add(Song *i);
-//		void sort();
+		void addSong(Song *i);
+		void sort();
 //		void shuffle();
 //		Song getsong();
 };

@@ -137,4 +137,7 @@ unsigned int Song::getIntro()
 	return(Intro);
 }
 
-
+std::string Song::toString()
+{
+	return(Title + " | " + Composer);
+}
