@@ -22,7 +22,7 @@ class Catalog
 //		Catalog duplicate();
 		void addSong(Song *i);
 		void sort();
-//		void shuffle();
+		void shuffle();
 //		Song getsong();
 };
 #endif

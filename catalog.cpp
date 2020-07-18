@@ -8,6 +8,8 @@
 #include "catalog.h"
 #include "song.h"
 #include <vector>
+#include <algorithm>
+#include <random>
 Catalog::Catalog()
 {
 }
@@ -26,7 +28,13 @@ void Catalog::sort()
 	cout << "Sort function" << endl;
 	return;
 }
-//		void shuffle();
+		void Catalog::shuffle()
+{
+	// I don't know if this works, but it compiles
+	unsigned seed = time(NULL);
+	std::shuffle(cat.begin(), cat.end(), std::default_random_engine(seed));
+	return;
+}
 //		Song getsong();
 
 
