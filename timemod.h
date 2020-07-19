@@ -1,14 +1,14 @@
 /* Converts between time units
  */
 
-#ifndef timemod
-#define timemod
+#ifndef TIMEMOD_H
+#define TIMEMOD_H
 
 #include <string.h>
 
 using namespace std;
 
-/* This class probably is necessary, but I'll leave it here just in case
+/* This class probably is unnecessary, but I'll leave it here just in case
 class timestore
 {
 	private:
