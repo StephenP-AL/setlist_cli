@@ -3,6 +3,7 @@
  */
 
 // Headers
+#include "fileio.h"
 #include "timemod.h"
 #include "song.h"
 #include <iostream>
@@ -14,6 +15,8 @@ using namespace std;
 #define DEBUG
 #define DEBUG1
 #define DEBUG2
+
+void waitenter(void);
 
 
 int main(void){
@@ -229,19 +232,20 @@ else
 	cout << "Fail" << endl; 
 }
 */
+// File management
 
-// This still needs a lot of work
-Catalog testcatalog;
-for(int  j = 0; j < 5; j++)
-{
-	Song *songptr = new Song();
-	std::string s = "Song" + to_string(j);
-	cout << s << endl;
-}
+Catalog testcatalog = openCatalog("Example.setlist");
 
-Song *songptr = new Song();
-songptr->setTitle("yurp");
-testcatalog.addSong(songptr);
+testcatalog.printSongs();
+testcatalog.clear();
 
 return 0;
 }
+// Pauses program until user hits enter
+void waitenter(void)
+{
+	cout << "Press enter to continue" << endl;
+	while (cin.get() != '\n');
+	return;
+}
+

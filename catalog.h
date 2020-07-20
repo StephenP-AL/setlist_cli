@@ -24,5 +24,7 @@ class Catalog
 		void sort();
 		void shuffle();
 //		Song getsong();
+		void printSongs();
+		void clear();
 };
 #endif
