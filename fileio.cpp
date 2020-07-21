@@ -70,10 +70,10 @@ void openCatalog(string path,Catalog *open)
 				{
 					songptr->setGenre(line.substr(6,line.length())); 
 				}
-				// Length, this doesn't seem to be working yet
+				// Length
 				else if(line.substr(0,7).compare("length:") == 0 )
 				{
-					if(line.substr(7,line.length()).compare("") )
+					if(line.substr(7,line.length()).compare("") == 0 )
 					{
 						songptr->setLength(0); 
 					}
@@ -81,7 +81,6 @@ void openCatalog(string path,Catalog *open)
 					{
 						songptr->setLength(stoi(line.substr(7,line.length())));
 					}
-					
 				}
 				
 				
