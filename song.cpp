@@ -157,5 +157,6 @@ std::string Song::toString()
 		arc = "Archive: True"; 
 	}
 	
-	return(Title + a + Composer + a + Key + a + Genre + a + arc + a + to_string(Length));
+	return(Title + a + Composer + a + Key + a + Genre + a + arc + a + "Length:" + to_string(Length) + a + "Tempo:" + to_string(Tempo) + a + 
+	     "Intro:" + to_string(Intro) );
 }
