@@ -16,7 +16,8 @@ using namespace std;
 #define DEBUG1
 #define DEBUG2
 
-void waitenter(void);
+// Functions
+// void waitenter(void);
 
 
 int main(void){
@@ -233,19 +234,21 @@ else
 }
 */
 // File management
-
-Catalog testcatalog = openCatalog("Example.setlist");
-
+// Needs some work
+Catalog testcatalog;
+openCatalog("Example.setlist",&testcatalog);
+cout << "print\n" << endl;
 testcatalog.printSongs();
 testcatalog.clear();
 
 return 0;
 }
 // Pauses program until user hits enter
+/*
 void waitenter(void)
 {
 	cout << "Press enter to continue" << endl;
 	while (cin.get() != '\n');
 	return;
 }
-
+*/

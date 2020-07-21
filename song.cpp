@@ -7,6 +7,7 @@
 // Headers
 #include "song.h"
 #include <string.h>
+#include <algorithm>
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -37,6 +38,7 @@ Song::~Song()
 // Gets and Sets
 void Song::setTitle(string title)
 {
+	title.erase(remove(title.begin(), title.end(), '\n'), title.end());
 	Title = title;
 #ifdef DEBUG
 	cout << "Title set to '" << Title << "'" << endl;
@@ -52,6 +54,9 @@ std::string Song::getTitle()
 
 void Song::setComposer(string composer)
 {
+	composer.erase(remove(composer.begin(), composer.end(), '\n'), composer.end());
+
+
 	Composer = composer;
 #ifdef DEBUG
 	printf("%s","---DEBUG--- Composer set to:");
@@ -139,5 +144,12 @@ unsigned int Song::getIntro()
 
 std::string Song::toString()
 {
-	return(Title + " | " + Composer);
+	string a = " | ";
+	string arc = "Archive: False";
+	if(Archive )
+	{
+		arc = "Archive: True"; 
+	}
+	
+	return(Title + a + Composer + a + Key + a + arc + a + to_string(Length));
 }

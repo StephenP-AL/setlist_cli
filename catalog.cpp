@@ -15,6 +15,7 @@ Catalog::Catalog()
 }
 Catalog::~Catalog()
 {
+	Catalog::clear();
 }
 //		Catalog duplicate();
 
@@ -59,6 +60,10 @@ void Catalog::printSongs()
 // Clear catalog
 void Catalog::clear()
 {
+	for(int i  = 0; i <cat.size(); i++ )
+	{
+		delete cat[i]; 
+	}
 	cat.clear();
 }
 

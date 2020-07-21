@@ -9,9 +9,10 @@
 #include <fstream>
 #include <string.h>
 
-Catalog openCatalog(string path);
+void openCatalog(string path, Catalog *open);
 void writeCatalog(string path, Catalog cat);
 
+void waitenter(void);
 
 
 
