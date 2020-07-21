@@ -36,6 +36,8 @@ public:
 	std::string getComposer();
 	void setKey(std::string key);
 	std::string getKey();
+	void setGenre(string genre);
+	string getGenre();
 	void setArchive(bool archive);
 	void toggleArchive();
 	bool isArchive();

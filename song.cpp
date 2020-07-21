@@ -38,7 +38,6 @@ Song::~Song()
 // Gets and Sets
 void Song::setTitle(string title)
 {
-	title.erase(remove(title.begin(), title.end(), '\n'), title.end());
 	Title = title;
 #ifdef DEBUG
 	cout << "Title set to '" << Title << "'" << endl;
@@ -54,9 +53,6 @@ std::string Song::getTitle()
 
 void Song::setComposer(string composer)
 {
-	composer.erase(remove(composer.begin(), composer.end(), '\n'), composer.end());
-
-
 	Composer = composer;
 #ifdef DEBUG
 	printf("%s","---DEBUG--- Composer set to:");
@@ -85,6 +81,16 @@ std::string Song::getKey()
 	return (Key);
 }
 
+void Song::setGenre(string genre)
+{
+	Genre = genre;
+	return;
+}
+
+string Song::getGenre()
+{
+	return(Genre);
+}
 void Song::setArchive(bool archive)
 {
 	Archive = archive;
@@ -151,5 +157,5 @@ std::string Song::toString()
 		arc = "Archive: True"; 
 	}
 	
-	return(Title + a + Composer + a + Key + a + arc + a + to_string(Length));
+	return(Title + a + Composer + a + Key + a + Genre + a + arc + a + to_string(Length));
 }

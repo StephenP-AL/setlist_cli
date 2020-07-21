@@ -50,19 +50,40 @@ void openCatalog(string path,Catalog *open)
 				{
 					line[line.length() - 1] = 0; 
 				}
-
+				// Title
 			       	if(line.substr(0,6).compare("title:") == 0 )
 				{
 					songptr->setTitle(line.substr(6,line.length())); 
 				}
+				// Composer
 			 	else if(line.substr(0,9).compare("composer:") == 0 )
 				{
 				       	songptr->setComposer(line.substr(9,line.length()));
 				}
+				// Key
 				else if(line.substr(0,4).compare("key:") == 0 )
 				{
 					songptr->setKey(line.substr(4,line.length()));
 				}
+				// Genre
+				else if(line.substr(0,6).compare("genre:") == 0 )
+				{
+					songptr->setGenre(line.substr(6,line.length())); 
+				}
+				// Length, this doesn't seem to be working yet
+				else if(line.substr(0,7).compare("length:") == 0 )
+				{
+					if(line.substr(7,line.length()).compare("") )
+					{
+						songptr->setLength(0); 
+					}
+					else
+					{
+						songptr->setLength(stoi(line.substr(7,line.length())));
+					}
+					
+				}
+				
 				
 			}
 
