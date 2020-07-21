@@ -82,6 +82,7 @@ void openCatalog(string path,Catalog *open)
 						songptr->setLength(stoi(line.substr(7,line.length())));
 					}
 				}
+				// Tempo
 				else if(line.substr(0,6).compare("tempo:") == 0 )
 				{
 					if(line.substr(6,line.length()).compare("") == 0 )
@@ -93,7 +94,18 @@ void openCatalog(string path,Catalog *open)
 						songptr->setTempo(stoi(line.substr(6,line.length()))); 
 					}
 				}
-				
+				// Intro
+				else if(line.substr(0,6).compare("intro:") == 0 )
+				{
+					if(line.substr(6,line.length()).compare("") == 0 )
+					{
+						songptr->setIntro(0); 
+					}
+			       		else
+					{
+						songptr->setIntro(stoi(line.substr(6,line.length()))); 
+					}
+				}
 				
 			}
 
