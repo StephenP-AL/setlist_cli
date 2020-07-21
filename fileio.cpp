@@ -87,8 +87,16 @@ void openCatalog(string path,Catalog *open)
 				
 			}
 
-			open->addSong(songptr);
-			songptr = NULL;
+			if(songptr->getTitle().length() > 0)
+			{
+				open->addSong(songptr);
+				songptr = NULL;
+			}
+			else
+			{
+				delete songptr; 
+			}
+			
 			
 			
 		}

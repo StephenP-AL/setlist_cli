@@ -239,6 +239,9 @@ Catalog testcatalog;
 openCatalog("Example.setlist",&testcatalog);
 cout << "print\n" << endl;
 testcatalog.printSongs();
+waitenter();
+testcatalog.shuffle();
+testcatalog.printSongs();
 testcatalog.clear();
 
 return 0;
