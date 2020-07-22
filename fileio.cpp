@@ -47,10 +47,12 @@ void openCatalog(string path,Catalog *open)
 			while(!infile.eof() && line.substr(0,5).compare("#gnos") != 0 )
 			{
 				getline(infile,line);
-				// Replaces CR with null terminator
+				// removes CR
 				if((int)line[line.length() - 1] == 13 )
 				{
-					line[line.length() - 1] = 0; 
+					// I think this one is messing up strings, new variant below
+					// line[line.length() - 1] = 0; 
+					line = line.substr(0,line.length() - 1);
 				}
 				// Title
 			       	if(line.substr(0,6).compare("title:") == 0 )
@@ -108,6 +110,14 @@ void openCatalog(string path,Catalog *open)
 						songptr->setIntro(stoi(line.substr(6,line.length()))); 
 					}
 				}
+				else if(line.substr(0,9).compare("archive:0") == 0 )
+				{
+					songptr->setArchive(false);
+				}
+				else if(line.substr(0,9).compare("archive:1") == 0 )
+				{
+					songptr->setArchive(true);
+				}
 				
 			}
 
@@ -147,12 +157,20 @@ void writeCatalog(string path, Catalog *out)
 	{
 		outfile << "#song" << endl;
 		outfile << "title:" << out->getSong(i).getTitle() << endl;
-		outfile << "#gnos" << endl;
+		outfile << "composer:" << out->getSong(i).getComposer() << endl;
+		outfile << "key:" << out->getSong(i).getKey() << endl;
+		outfile << "genre:" << out->getSong(i).getGenre() << endl;
+		outfile << "length:" << out->getSong(i).getLength() << endl;
+		outfile << "tempo:" << out->getSong(i).getTempo() << endl;
+		outfile << "intro:" << out->getSong(i).getIntro() << endl;
+		outfile << "archive:" << out->getSong(i).isArchive() << endl;
+//		outfile << "<++>" << out->getSong(i).get<++>() << endl;
+		outfile << "#gnos" << endl << endl;
 		 
 		
 	}
 	
-	outfile << endl << "#eof";	
+	outfile << "#eof";	
 	outfile.close();
 
 	cout << "Stub file writer" << endl;

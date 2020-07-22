@@ -238,11 +238,14 @@ else
 Catalog testcatalog;
 openCatalog("Example.setlist",&testcatalog);
 cout << "print\n" << endl;
-testcatalog.printSongs();
-waitenter();
+//testcatalog.printSongs();
+//waitenter();
 cout << "new test\n";
 writeCatalog("out.setlist",&testcatalog);
 testcatalog.clear();
+openCatalog("out.setlist",&testcatalog);
+//testcatalog.printSongs();
+writeCatalog("out2.setlist",&testcatalog);
 return 0;
 }
 // Pauses program until user hits enter
