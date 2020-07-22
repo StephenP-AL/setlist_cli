@@ -33,8 +33,10 @@ void openCatalog(string path,Catalog *open)
 	}
 	else
 	{
-		
-		cout << "Opening " << path << endl;
+#ifdef DEBUG
+	printf("%s","---DEBUG---Opening ");
+	cout << path << endl;
+#endif
 		while(!infile.eof() && line.substr(0,4).compare("#eof") != 0)
 		{
 			while(!infile.eof() && line.substr(0,5).compare("#song") != 0 )
@@ -118,23 +120,41 @@ void openCatalog(string path,Catalog *open)
 			{
 				delete songptr; 
 			}
-			
-			
-			
 		}
-	
+	/* This seemed like a good idea, but cuases "free(): double free detected in tcache 2"
 	if (songptr != NULL)
 	{
-	//	delete songptr;
+		delete songptr;
 	}
+	*/
+	infile.close();
 	return;
       		
 	}
 	
 }
 
-void writeCatalog(string path, Catalog cat)
+void writeCatalog(string path, Catalog *out)
 {
+	ofstream outfile;
+	outfile.open(path);
+	if(!outfile )
+	{
+		cout << "Unable to open '" << path << "'" << endl; 
+	}
+	outfile << "catalog_size:" << out->size() << endl << endl;
+	for(unsigned int i = 0; i < out->size(); i++ )
+	{
+		outfile << "#song" << endl;
+		outfile << "title:" << out->getSong(i).getTitle() << endl;
+		outfile << "#gnos" << endl;
+		 
+		
+	}
+	
+	outfile << endl << "#eof";	
+	outfile.close();
+
 	cout << "Stub file writer" << endl;
 	return;
 }

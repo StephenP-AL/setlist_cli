@@ -240,10 +240,9 @@ openCatalog("Example.setlist",&testcatalog);
 cout << "print\n" << endl;
 testcatalog.printSongs();
 waitenter();
-testcatalog.shuffle();
-testcatalog.printSongs();
+cout << "new test\n";
+writeCatalog("out.setlist",&testcatalog);
 testcatalog.clear();
-
 return 0;
 }
 // Pauses program until user hits enter

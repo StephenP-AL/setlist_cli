@@ -23,8 +23,9 @@ class Catalog
 		void addSong(Song *i);
 		void sort();
 		void shuffle();
-//		Song getsong();
+		Song getSong(unsigned int i);
 		void printSongs();
 		void clear();
+		unsigned int size();
 };
 #endif

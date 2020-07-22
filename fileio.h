@@ -10,7 +10,7 @@
 #include <string.h>
 
 void openCatalog(string path, Catalog *open);
-void writeCatalog(string path, Catalog cat);
+void writeCatalog(string path, Catalog *out);
 
 void waitenter(void);
 

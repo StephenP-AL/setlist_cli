@@ -44,7 +44,25 @@ void Catalog::shuffle()
 	return;
 }
 
-//		Song getsong();
+// Returns a copy of Song stored at pointer index i
+Song Catalog::getSong(unsigned int i)
+{
+	Song ret;
+	if(cat.size() < i )
+	{
+		return(ret); 
+	}
+	ret.setTitle(cat[i]->getTitle());
+	ret.setComposer(cat[i]->getComposer());
+	ret.setKey(cat[i]->getKey());
+	ret.setGenre(cat[i]->getGenre());
+	ret.setLength(cat[i]->getLength());
+	ret.setTempo(cat[i]->getTempo());
+	ret.setIntro(cat[i]->getIntro());
+	ret.setArchive(cat[i]->isArchive());
+
+	return(ret);
+}
 
 // Prints all songs for testing purposes
 void Catalog::printSongs()
@@ -67,3 +85,8 @@ void Catalog::clear()
 	cat.clear();
 }
 
+// Size of the catalog
+unsigned int Catalog::size()
+{
+	return(cat.size());
+}
