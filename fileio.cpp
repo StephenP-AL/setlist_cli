@@ -21,7 +21,7 @@ void openCatalog(string path,Catalog *open)
 {
 	
 	string line;
-	unsigned int num;
+	unsigned int size; // This is for resizing the vector, which is not implemented
 	Song *songptr;
 	ifstream infile;
 	infile.open(path);
@@ -42,6 +42,13 @@ void openCatalog(string path,Catalog *open)
 			while(!infile.eof() && line.substr(0,5).compare("#song") != 0 )
 			{
 				getline(infile,line);
+				// Expand vector to accommodate new songs
+				if(line.substr(0,13).compare("catalog_size:") == 0 )
+				{
+					size = stoi(line.substr(13,line.length()));
+					open->expand(size);
+				}
+				
 			}
 			songptr = new Song;
 			while(!infile.eof() && line.substr(0,5).compare("#gnos") != 0 )
@@ -50,8 +57,6 @@ void openCatalog(string path,Catalog *open)
 				// removes CR
 				if((int)line[line.length() - 1] == 13 )
 				{
-					// I think this one is messing up strings, new variant below
-					// line[line.length() - 1] = 0; 
 					line = line.substr(0,line.length() - 1);
 				}
 				// Title
@@ -164,6 +169,7 @@ void writeCatalog(string path, Catalog *out)
 		outfile << "tempo:" << out->getSong(i).getTempo() << endl;
 		outfile << "intro:" << out->getSong(i).getIntro() << endl;
 		outfile << "archive:" << out->getSong(i).isArchive() << endl;
+		// Sample line below
 //		outfile << "<++>" << out->getSong(i).get<++>() << endl;
 		outfile << "#gnos" << endl << endl;
 		 
@@ -173,7 +179,6 @@ void writeCatalog(string path, Catalog *out)
 	outfile << "#eof";	
 	outfile.close();
 
-	cout << "Stub file writer" << endl;
 	return;
 }
 

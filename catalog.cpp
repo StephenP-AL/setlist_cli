@@ -83,10 +83,18 @@ void Catalog::clear()
 		delete cat[i]; 
 	}
 	cat.clear();
+	cat.shrink_to_fit();
 }
 
 // Size of the catalog
 unsigned int Catalog::size()
 {
 	return(cat.size());
+}
+
+// Expands vecotr by the specified size 
+void Catalog::expand(unsigned int size)
+{
+	cat.reserve(cat.size() + size);
+	return;
 }

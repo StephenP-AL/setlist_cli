@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string.h>
 #include "catalog.h"
+#include <vector>
 using namespace std;
 
 //Preprocessor Definitions
@@ -238,13 +239,11 @@ else
 Catalog testcatalog;
 openCatalog("Example.setlist",&testcatalog);
 cout << "print\n" << endl;
-//testcatalog.printSongs();
-//waitenter();
 cout << "new test\n";
 writeCatalog("out.setlist",&testcatalog);
 testcatalog.clear();
+cout << "2nd open\n";
 openCatalog("out.setlist",&testcatalog);
-//testcatalog.printSongs();
 writeCatalog("out2.setlist",&testcatalog);
 return 0;
 }

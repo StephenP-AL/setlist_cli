@@ -27,5 +27,6 @@ class Catalog
 		void printSongs();
 		void clear();
 		unsigned int size();
+		void expand(unsigned int size);
 };
 #endif
