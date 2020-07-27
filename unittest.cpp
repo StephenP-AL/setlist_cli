@@ -234,17 +234,35 @@ else
 	cout << "Fail" << endl; 
 }
 */
-// File management
-// Needs some work
-Catalog testcatalog;
-openCatalog("Example.setlist",&testcatalog);
-cout << "print\n" << endl;
-cout << "new test\n";
-writeCatalog("out.setlist",&testcatalog);
-testcatalog.clear();
-cout << "2nd open\n";
-openCatalog("out.setlist",&testcatalog);
-writeCatalog("out2.setlist",&testcatalog);
+
+// Catalog from external file
+cout << "*--------Catalog and catalog files" << endl;
+Catalog testcat;
+openCatalog("Example.setlist",&testcat);
+cout << "Catalog read from fie: ";
+if(testcat.getSong(0).getTitle().compare("Chocolate Rain") == 0 )
+{
+	cout << "Pass\n"; 
+}
+else
+{
+	cout << "Fail\n"; 
+}
+
+// Duplication
+
+cout << "Catalog Duplicate: "  ;
+Catalog testcat2;
+testcat.duplicate(&testcat2);
+if(testcat.getSong(0).getTitle().compare(testcat2.getSong(0).getTitle()) == 0 )
+{
+	cout << "Pass\n"; 
+}
+else
+{
+	cout << "Fail\n"; 
+}
+
 return 0;
 }
 // Pauses program until user hits enter

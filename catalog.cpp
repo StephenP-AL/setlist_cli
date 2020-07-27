@@ -15,10 +15,29 @@ Catalog::Catalog()
 }
 Catalog::~Catalog()
 {
-	Catalog::clear();
+//	Catalog::clear();
 }
-//		Catalog duplicate();
-
+void Catalog::duplicate(Catalog *dup)
+{
+	dup->expand(cat.size());
+	for(unsigned int i = 0; i < cat.size(); i++ )
+	{
+		Song *add = new Song;
+		
+		add->setTitle(cat[i]->getTitle());
+		add->setComposer(cat[i]->getComposer());
+		add->setKey(cat[i]->getKey());
+		add->setGenre(cat[i]->getGenre());
+		add->setLength(cat[i]->getLength());
+		add->setTempo(cat[i]->getTempo());
+		add->setIntro(cat[i]->getIntro());
+		add->setArchive(cat[i]->isArchive());
+		// Template below
+	//	add->set<++>(cat[i]->get<++>());
+		dup->addSong(add); 
+	}
+	return;
+}	
 
 // Adds a Song pointer to the vector
 void Catalog::addSong(Song *i)
@@ -78,12 +97,18 @@ void Catalog::printSongs()
 // Clear catalog
 void Catalog::clear()
 {
-	for(int i  = 0; i <cat.size(); i++ )
+	cout << "clear\n";
+	for(int i  = 0; i < cat.size(); i++ )
 	{
+		cout << i << endl;
 		delete cat[i]; 
+		cout << i << endl;
 	}
-	cat.clear();
-	cat.shrink_to_fit();
+//	cat.clear();
+//	cat.resize(1);
+//	cat.shrink_to_fit();
+	
+	return;
 }
 
 // Size of the catalog
@@ -92,7 +117,7 @@ unsigned int Catalog::size()
 	return(cat.size());
 }
 
-// Expands vecotr by the specified size 
+// Expands vector by the specified size 
 void Catalog::expand(unsigned int size)
 {
 	cat.reserve(cat.size() + size);

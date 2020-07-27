@@ -19,7 +19,7 @@ class Catalog
 	public:
 		Catalog();
 		~Catalog();
-//		Catalog duplicate();
+		void duplicate(Catalog *dup);
 		void addSong(Song *i);
 		void sort();
 		void shuffle();
