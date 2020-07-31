@@ -16,7 +16,8 @@ class Catalog
 	private:
 		vector<Song*> cat;
 		unsigned int iterator;
-		bool defautltCompare(Song *a, Song *b);
+		bool compareTitle(Song *a, Song *b);
+//		bool compareComposer(const Song *a, const Song *b);
 	public:
 		Catalog();
 		~Catalog();

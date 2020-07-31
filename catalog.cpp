@@ -40,16 +40,19 @@ void Catalog::duplicate(Catalog *dup)
 }	
 
 // Compare songs by title
+/*
 bool compareTitle(Song *a, Song *b)
 {
 	return(a->getTitle().compare(b->getTitle()) < 0);
 }
+*/
 // Compare Songs by Composer
-bool compareComposer(Song *a, Song *b)
+/*
+bool compareComposer(const Song *a, const Song *b)
 {
 	return(a->getComposer().compare(b->getComposer()) < 0);
 }
-
+*/
 
 
 // Adds a Song pointer to the vector
@@ -64,7 +67,7 @@ void Catalog::addSong(Song *i)
 void Catalog::sort()
 {
 	// I don't know how this works
-//	sort(cat.begin(), cat.end(), compareTitle());
+//	sort(cat.begin(), cat.end(), compareTitle);
 
 	return;
 }
