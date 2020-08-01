@@ -262,7 +262,11 @@ else
 {
 	cout << "Fail\n"; 
 }
-
+testcat.shuffle();
+testcat.printSongs();
+testcat.sort_composer();
+cout << "--- --- --- ---" << endl;
+testcat.printSongs();
 return 0;
 }
 // Pauses program until user hits enter

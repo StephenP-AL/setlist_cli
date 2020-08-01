@@ -39,22 +39,6 @@ void Catalog::duplicate(Catalog *dup)
 	return;
 }	
 
-// Compare songs by title
-/*
-bool compareTitle(Song *a, Song *b)
-{
-	return(a->getTitle().compare(b->getTitle()) < 0);
-}
-*/
-// Compare Songs by Composer
-/*
-bool compareComposer(const Song *a, const Song *b)
-{
-	return(a->getComposer().compare(b->getComposer()) < 0);
-}
-*/
-
-
 // Adds a Song pointer to the vector
 void Catalog::addSong(Song *i)
 {
@@ -64,10 +48,41 @@ void Catalog::addSong(Song *i)
 
 
 // Sort function 
-void Catalog::sort()
+void Catalog::sort_composer()
 {
-	// I don't know how this works
-//	sort(cat.begin(), cat.end(), compareTitle);
+	std::sort(cat.begin(), cat.end(), [](Song* a, Song* b)
+		{
+			string compa = a->getComposer();
+			string compb = b->getComposer();
+			string titlea = a->getTitle();
+			string titleb = b->getTitle();
+
+			for(int i = 0; i < compa.length(); i++ )
+			{
+				compa[i] = toupper(compa[i]); 
+			}
+			for(int i = 0; i < compb.length(); i++ )
+			{
+				compb[i] = toupper(compb[i]); 
+			}
+ 			for(int i = 0; i < titlea.length(); i++ )
+			{
+				titlea[i] = toupper(titlea[i]); 
+			}
+			for(int i = 0; i < titleb.length(); i++ )
+			{
+				titleb[i] = toupper(titleb[i]); 
+			}
+			if(compa.compare(compb) == 0 )
+			{
+				return(titlea.compare(titleb) < 0);
+			}
+			else
+			{
+				return(compa.compare(compb) < 0 );
+			}
+			
+		} );
 
 	return;
 }

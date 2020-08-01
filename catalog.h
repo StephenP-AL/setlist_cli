@@ -16,14 +16,12 @@ class Catalog
 	private:
 		vector<Song*> cat;
 		unsigned int iterator;
-		bool compareTitle(Song *a, Song *b);
-//		bool compareComposer(const Song *a, const Song *b);
 	public:
 		Catalog();
 		~Catalog();
 		void duplicate(Catalog *dup);
 		void addSong(Song *i);
-		void sort();
+		void sort_composer();
 		void shuffle();
 		Song getSong(unsigned int i);
 		void printSongs();
@@ -31,4 +29,5 @@ class Catalog
 		unsigned int size();
 		void expand(unsigned int size);
 };
+
 #endif

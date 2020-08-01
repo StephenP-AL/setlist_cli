@@ -46,7 +46,7 @@ void Song::setTitle(string title)
 	return;
 }
 
-std::string Song::getTitle()
+const string Song::getTitle()
 {
 	return (Title);
 }
