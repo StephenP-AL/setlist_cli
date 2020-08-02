@@ -79,32 +79,6 @@ void Catalog::sort_genre()
 			string compb = catalogSortFormat(b->getComposer());
 			string titlea = catalogSortFormat(a->getTitle());
 			string titleb = catalogSortFormat(b->getTitle());
-/*
-			for(int i = 0; i < genrea.length(); i++ )
-			{
-				genrea[i] = toupper(genrea[i]);
-			 }
-			for(int i = 0; i < genreb.length(); i++ )
-			{
-				genreb[i] = toupper(genreb[i]);
-		 	}
-			for(int i = 0; i < compa.length(); i++ )
-			{
-				compa[i] = toupper(compa[i]); 
-			}
-			for(int i = 0; i < compb.length(); i++ )
-			{
-				compb[i] = toupper(compb[i]); 
-			}
- 			for(int i = 0; i < titlea.length(); i++ )
-			{
-				titlea[i] = toupper(titlea[i]); 
-			}
-			for(int i = 0; i < titleb.length(); i++ )
-			{
-				titleb[i] = toupper(titleb[i]); 
-			}
-			*/
 			if(genrea.compare(genreb) != 0 )
 			{
 				cout << genrea << " | " << genreb << " " << (genrea.compare(genreb) < 0) << endl;
@@ -129,27 +103,10 @@ void Catalog::sort_composer()
 {
 	std::sort(cat.begin(), cat.end(), [](Song* a, Song* b)
 		{
-			string compa = a->getComposer();
-			string compb = b->getComposer();
-			string titlea = a->getTitle();
-			string titleb = b->getTitle();
-
-			for(int i = 0; i < compa.length(); i++ )
-			{
-				compa[i] = toupper(compa[i]); 
-			}
-			for(int i = 0; i < compb.length(); i++ )
-			{
-				compb[i] = toupper(compb[i]); 
-			}
- 			for(int i = 0; i < titlea.length(); i++ )
-			{
-				titlea[i] = toupper(titlea[i]); 
-			}
-			for(int i = 0; i < titleb.length(); i++ )
-			{
-				titleb[i] = toupper(titleb[i]); 
-			}
+			string compa = catalogSortFormat(a->getComposer());
+			string compb = catalogSortFormat(b->getComposer());
+			string titlea = catalogSortFormat(a->getTitle());
+			string titleb = catalogSortFormat(b->getTitle());
 			if(compa.compare(compb) == 0 )
 			{
 				return(titlea.compare(titleb) < 0);
@@ -169,18 +126,9 @@ void Catalog::sort_title()
 {
 	std::sort(cat.begin(), cat.end(), [](Song* a, Song* b)
 		{
-			string titlea = a->getTitle();
-			string titleb = b->getTitle();
-
- 			for(int i = 0; i < titlea.length(); i++ )
-			{
-				titlea[i] = toupper(titlea[i]); 
-			}
-			for(int i = 0; i < titleb.length(); i++ )
-			{
-				titleb[i] = toupper(titleb[i]); 
-			}
-				return(titlea.compare(titleb) < 0);
+			string titlea = catalogSortFormat(a->getTitle());
+			string titleb = catalogSortFormat(b->getTitle());
+			return(titlea.compare(titleb) < 0);
 		} );
 	return;
 }

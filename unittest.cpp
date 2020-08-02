@@ -267,9 +267,13 @@ for(unsigned int i = 0; i < testcat.size(); i++ )
 {
 	cout << testcat.getSong(i).getGenre() << endl; 
 }
-testcat.sort_genre();
+testcat.sort_title();
 cout << "--- --- --- ---" << endl;
 testcat.printSongs();
+for(int i = 0; i < testcat.size(); i++)
+{
+	cout << testcat.getSong(i).getTitle() << endl;
+}
 
 return 0;
 }
