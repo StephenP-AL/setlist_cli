@@ -263,12 +263,17 @@ else
 	cout << "Fail\n"; 
 }
 testcat.shuffle();
-testcat.printSongs();
-testcat.sort_composer();
+for(unsigned int i = 0; i < testcat.size(); i++ )
+{
+	cout << testcat.getSong(i).getGenre() << endl; 
+}
+testcat.sort_genre();
 cout << "--- --- --- ---" << endl;
 testcat.printSongs();
+
 return 0;
 }
+
 // Pauses program until user hits enter
 /*
 void waitenter(void)

@@ -22,6 +22,8 @@ class Catalog
 		void duplicate(Catalog *dup);
 		void addSong(Song *i);
 		void sort_composer();
+		void sort_genre();
+		void sort_title();
 		void shuffle();
 		Song getSong(unsigned int i);
 		void printSongs();
@@ -29,5 +31,5 @@ class Catalog
 		unsigned int size();
 		void expand(unsigned int size);
 };
-
+std::string catalogSortFormat(std::string instring);
 #endif
