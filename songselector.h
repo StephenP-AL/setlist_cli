@@ -15,7 +15,8 @@ using namespace std;
 class SongSelector
 {
 	private:
-		list<Song*> sslist;
+		std::list<Song*> sslist;
+		std::list<Song*>::iterator it;
 	public:
 		SongSelector();
 		~SongSelector();

@@ -15,7 +15,7 @@ Catalog::Catalog()
 }
 Catalog::~Catalog()
 {
-//	Catalog::clear();
+	Catalog::clear();
 }
 void Catalog::duplicate(Catalog *dup)
 {
@@ -135,10 +135,15 @@ void Catalog::sort_title()
 // Randomizes the vector
 void Catalog::shuffle()
 {
-	// I don't know if this works, but it compiles
 	unsigned seed = time(NULL);
 	std::shuffle(cat.begin(), cat.end(), std::default_random_engine(seed));
 	return;
+}
+
+
+Song* Catalog::getSongptr(unsigned int i)
+{
+	return(cat[i]);
 }
 
 // Returns a copy of Song stored at pointer index i
@@ -175,16 +180,13 @@ void Catalog::printSongs()
 // Clear catalog
 void Catalog::clear()
 {
-	cout << "clear\n";
 	for(int i  = 0; i < cat.size(); i++ )
 	{
-		cout << i << endl;
 		delete cat[i]; 
-		cout << i << endl;
 	}
-//	cat.clear();
-//	cat.resize(1);
-//	cat.shrink_to_fit();
+	cat.clear();
+	cat.resize(1);
+	cat.shrink_to_fit();
 	
 	return;
 }

@@ -10,6 +10,8 @@
 #include <string.h>
 #include "catalog.h"
 #include <vector>
+#include <list>
+#include "songselector.h"
 using namespace std;
 
 //Preprocessor Definitions
@@ -22,9 +24,15 @@ using namespace std;
 
 
 int main(void){
-	// Song class tests
+
+
+
+
+
+	
+// Song class tests
 cout << "*-------Testing Song class functions" << endl;
-Song test;
+Song testsong;
 string blerg;
 blerg = "ploop";
 bool boof = true;
@@ -32,9 +40,9 @@ int yerp = 9001;
 
 // Title
 
-test.setTitle(blerg);
+testsong.setTitle(blerg);
 cout << "Song Title set/get: " ;
-if(test.getTitle().compare(blerg) == 0)
+if(testsong.getTitle().compare(blerg) == 0)
 {
 	cout << "Pass" << endl; 
 }
@@ -44,9 +52,9 @@ else
 }
 
 // Composer
-test.setComposer(blerg);
+testsong.setComposer(blerg);
 cout << "Song Composer set/get: ";
-if(test.getComposer().compare(blerg) == 0 )
+if(testsong.getComposer().compare(blerg) == 0 )
 {
 	cout << "Pass" << endl; 
 }
@@ -56,9 +64,21 @@ else
 }
 
 // Key
-test.setKey(blerg);
+testsong.setKey(blerg);
 cout << "Song Key set/get: ";
-if(test.getKey().compare(blerg) == 0 )
+if(testsong.getKey().compare(blerg) == 0 )
+{
+	cout << "Pass" << endl; 
+}
+else
+{
+	cout << "Fail" << endl; 
+}
+
+// Genre
+testsong.setGenre(blerg);
+cout << "Song Genre set/get: ";
+if(testsong.getGenre().compare(blerg) == 0 )
 {
 	cout << "Pass" << endl; 
 }
@@ -68,9 +88,9 @@ else
 }
 
 // Archive
-test.setArchive(boof);
+testsong.setArchive(boof);
 cout << "Song Archive set/get: ";
-if(test.isArchive() )
+if(testsong.isArchive() )
 {
 	cout << "Pass" << endl; 
 }
@@ -78,9 +98,9 @@ else
 {
 	cout << "Fail" << endl; 
 }
-test.toggleArchive();
+testsong.toggleArchive();
 cout << "Song Archive toggle: ";
-if(test.isArchive() )
+if(testsong.isArchive() )
 {
 	cout << "Fail" << endl; 
 }
@@ -90,9 +110,9 @@ else
 }
 
 // Length
-test.setLength(yerp);
+testsong.setLength(yerp);
 cout << "Song Length set/get: ";
-if(test.getLength() == yerp )
+if(testsong.getLength() == yerp )
 {
 	cout << "Pass" << endl; 
 }
@@ -102,9 +122,9 @@ else
 }
 
 // Tempo
-test.setTempo(yerp);
+testsong.setTempo(yerp);
 cout << "Song Tempo set/get: ";
-if(test.getTempo() == yerp )
+if(testsong.getTempo() == yerp )
 {
 	cout << "Pass" << endl; 
 }
@@ -114,9 +134,9 @@ else
 }
 
 // Intro
-test.setIntro(yerp);
+testsong.setIntro(yerp);
 cout << "Song Intro set/get: ";
-if(test.getTempo() == yerp )
+if(testsong.getTempo() == yerp )
 {
 	cout << "Pass" << endl; 
 }
@@ -127,9 +147,10 @@ else
 
 // To String
 std::string tostr;
-tostr = blerg + " | " + blerg;
+std::string a = " | ";
+tostr = blerg + a + blerg + a + blerg + a + blerg + a + "Archive: False" + a + "Length:" + to_string(yerp) + a + "Tempo:" + to_string(yerp) + a + "Intro:" + to_string(yerp);
 cout << "Song to string: ";
-if(test.toString().compare(tostr) == 0)
+if(testsong.toString().compare(tostr) == 0)
 {
 	cout << "Pass" << endl; 
 }
@@ -137,8 +158,6 @@ else
 {
 	cout << "Fail" << endl; 
 }
-
-
 
 // Timemod
 cout << "*--------Testing Time modifiers" << endl;
@@ -239,7 +258,7 @@ else
 cout << "*--------Catalog and catalog files" << endl;
 Catalog testcat;
 openCatalog("Example.setlist",&testcat);
-cout << "Catalog read from fie: ";
+cout << "Catalog read from file: ";
 if(testcat.getSong(0).getTitle().compare("Chocolate Rain") == 0 )
 {
 	cout << "Pass\n"; 
@@ -262,18 +281,11 @@ else
 {
 	cout << "Fail\n"; 
 }
-testcat.shuffle();
-for(unsigned int i = 0; i < testcat.size(); i++ )
-{
-	cout << testcat.getSong(i).getGenre() << endl; 
-}
+
 testcat.sort_title();
-cout << "--- --- --- ---" << endl;
-testcat.printSongs();
-for(int i = 0; i < testcat.size(); i++)
-{
-	cout << testcat.getSong(i).getTitle() << endl;
-}
+SongSelector testselector;
+testselector.build(&testcat);
+
 
 return 0;
 }
