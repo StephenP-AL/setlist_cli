@@ -50,9 +50,9 @@ void SongSelector::build(Catalog *cat)
 	// Still need to figure out how to access list items
 	while(it != sslist.end() )
 	{
-		Song *ptr;
+		Song* ptr;
 		ptr = *it;
-		cout << ptr << endl;
+		cout << ptr->getTitle() << endl;
 
 		it++;
 	}

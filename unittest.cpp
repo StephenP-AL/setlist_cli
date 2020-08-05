@@ -283,10 +283,19 @@ else
 }
 
 testcat.sort_title();
+for(unsigned int i = 0; i < testcat.size(); i++ )
+{
+	cout << testcat.getSongptr(i)->getTitle() << endl; 
+}
+waitenter();
 SongSelector testselector;
 testselector.build(&testcat);
 
-
+waitenter();
+for(unsigned int i = 0; i < testcat.size(); i++ )
+{
+	cout << testcat.getSongptr(i)->getTitle() << endl; 
+}
 return 0;
 }
 
