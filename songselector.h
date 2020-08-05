@@ -22,6 +22,6 @@ class SongSelector
 		~SongSelector();
 		SongSelector(Catalog *cat);
 		void build(Catalog *cat);
-		
+		void printList();
 };
 #endif

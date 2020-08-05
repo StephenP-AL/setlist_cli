@@ -11,7 +11,7 @@
 #include <string.h>
 #include <string>
 #include <iostream>
-using namespace std;
+//using namespace std;
 
 
 class Song
@@ -31,13 +31,13 @@ public:
 	~Song();
 //	Song(std::string title, std::string composer, std::string key, std::string genre, bool archive, int length, int tempo, int intro);
 	void setTitle(std::string title);
-	const string getTitle();
+	const std::string getTitle();
 	void setComposer(std::string composer);	
 	std::string getComposer();
 	void setKey(std::string key);
 	std::string getKey();
-	void setGenre(string genre);
-	string getGenre();
+	void setGenre(std::string genre);
+	std::string getGenre();
 	void setArchive(bool archive);
 	void toggleArchive();
 	bool isArchive();

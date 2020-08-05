@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string.h>
-using namespace std;
+//using namespace std;
 
 // Constructors
 
@@ -23,7 +23,7 @@ Song::Song()
 
 Song::~Song()
 {}
-/*Song::Song(string title, string composer, string key, string genre, bool archive, int length, int tempo, int intro)
+/*Song::Song(std::string title, std::string composer, std::string key, std::string genre, bool archive, int length, int tempo, int intro)
 {
 	Title = title;
 	Composer = composer;
@@ -36,7 +36,7 @@ Song::~Song()
 }*/
 
 // Gets and Sets
-void Song::setTitle(string title)
+void Song::setTitle(std::string title)
 {
 	Title = title;
 #ifdef DEBUG
@@ -46,12 +46,12 @@ void Song::setTitle(string title)
 	return;
 }
 
-const string Song::getTitle()
+const std::string Song::getTitle()
 {
 	return (Title);
 }
 
-void Song::setComposer(string composer)
+void Song::setComposer(std::string composer)
 {
 	Composer = composer;
 #ifdef DEBUG
@@ -61,12 +61,12 @@ void Song::setComposer(string composer)
 	return;
 }
 
-string Song::getComposer()
+std::string Song::getComposer()
 {
 	return (Composer);
 }
 
-void Song::setKey(string key)
+void Song::setKey(std::string key)
 {
 	Key = key;
 #ifdef DEBUG
@@ -81,13 +81,13 @@ std::string Song::getKey()
 	return (Key);
 }
 
-void Song::setGenre(string genre)
+void Song::setGenre(std::string genre)
 {
 	Genre = genre;
 	return;
 }
 
-string Song::getGenre()
+std::string Song::getGenre()
 {
 	return(Genre);
 }
@@ -150,13 +150,12 @@ unsigned int Song::getIntro()
 
 std::string Song::toString()
 {
-	string a = " | ";
-	string arc = "Archive: False";
+	std::string a = " | ";
+	std::string arc = "Archive: False";
 	if(Archive )
 	{
 		arc = "Archive: True"; 
 	}
 	
-	return(Title + a + Composer + a + Key + a + Genre + a + arc + a + "Length:" + to_string(Length) + a + "Tempo:" + to_string(Tempo) + a + 
-	     "Intro:" + to_string(Intro) );
+	return(Title + a + Composer + a + Key + a + Genre + a + arc + a + "Length:" + std::to_string(Length) + a + "Tempo:" + std::to_string(Tempo) + a + "Intro:" + std::to_string(Intro) );
 }

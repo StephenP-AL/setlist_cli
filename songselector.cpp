@@ -22,6 +22,12 @@ SongSelector::~SongSelector()
 	return;
 }
 
+SongSelector::SongSelector(Catalog *cat)
+{
+	this->build(cat);
+	return;
+}
+// 
 void SongSelector::build(Catalog *cat)
 {
 	// take songs and randomize order
@@ -42,19 +48,22 @@ void SongSelector::build(Catalog *cat)
 	unsigned seed = time(NULL);
 	std::shuffle(shuffler.begin(), shuffler.end(), std::default_random_engine(seed));
 	
+	//Add songs to list
 	for(unsigned int i = 0; i < shuffler.size(); i++)
 	{
 		sslist.push_back(shuffler[i]); 
 	}
-	it = sslist.begin();
-	// Still need to figure out how to access list items
-	while(it != sslist.end() )
-	{
-		Song* ptr;
-		ptr = *it;
-		cout << ptr->getTitle() << endl;
+	
 
-		it++;
-	}
 	return;
+}
+
+void SongSelector::printList()
+{
+	it = sslist.begin();
+	while(it != sslist.end())
+	{
+		cout << ((Song*)*it)->toString() << endl;
+	       it++;	
+	}
 }
