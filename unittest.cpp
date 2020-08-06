@@ -31,9 +31,9 @@ int main(void){
 
 	
 // Song class tests
-cout << "*-------Testing Song class functions" << endl;
+std::cout << "*-------Testing Song class functions" << std::endl;
 Song testsong;
-string blerg;
+std::string blerg;
 blerg = "ploop";
 bool boof = true;
 int yerp = 9001;
@@ -41,164 +41,164 @@ int yerp = 9001;
 // Title
 
 testsong.setTitle(blerg);
-cout << "Song Title set/get: " ;
+std::cout << "Song Title set/get: " ;
 if(testsong.getTitle().compare(blerg) == 0)
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Composer
 testsong.setComposer(blerg);
-cout << "Song Composer set/get: ";
+std::cout << "Song Composer set/get: ";
 if(testsong.getComposer().compare(blerg) == 0 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Key
 testsong.setKey(blerg);
-cout << "Song Key set/get: ";
+std::cout << "Song Key set/get: ";
 if(testsong.getKey().compare(blerg) == 0 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Genre
 testsong.setGenre(blerg);
-cout << "Song Genre set/get: ";
+std::cout << "Song Genre set/get: ";
 if(testsong.getGenre().compare(blerg) == 0 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Archive
 testsong.setArchive(boof);
-cout << "Song Archive set/get: ";
+std::cout << "Song Archive set/get: ";
 if(testsong.isArchive() )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 testsong.toggleArchive();
-cout << "Song Archive toggle: ";
+std::cout << "Song Archive toggle: ";
 if(testsong.isArchive() )
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 else
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 
 // Length
 testsong.setLength(yerp);
-cout << "Song Length set/get: ";
+std::cout << "Song Length set/get: ";
 if(testsong.getLength() == yerp )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Tempo
 testsong.setTempo(yerp);
-cout << "Song Tempo set/get: ";
+std::cout << "Song Tempo set/get: ";
 if(testsong.getTempo() == yerp )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Intro
 testsong.setIntro(yerp);
-cout << "Song Intro set/get: ";
+std::cout << "Song Intro set/get: ";
 if(testsong.getTempo() == yerp )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // To String
 std::string tostr;
 std::string a = " | ";
 tostr = blerg + a + blerg + a + blerg + a + blerg + a + "Archive: False" + a + "Length:" + to_string(yerp) + a + "Tempo:" + to_string(yerp) + a + "Intro:" + to_string(yerp);
-cout << "Song to string: ";
+std::cout << "Song to string: ";
 if(testsong.toString().compare(tostr) == 0)
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 // Timemod
-cout << "*--------Testing Time modifiers" << endl;
+std::cout << "*--------Testing Time modifiers" << std::endl;
 unsigned int i=7349;
-cout << "Timemod sectohr [" << sectohr(i) << "]: ";
+std::cout << "Timemod sectohr [" << sectohr(i) << "]: ";
 if(sectohr(i) == 2 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
-cout << "Timemod remmin [" << remmin(i) << "]: ";
+std::cout << "Timemod remmin [" << remmin(i) << "]: ";
 if(remmin(i) == 2 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
-cout << "Timemod remsec [" << remsec(i) << "]: ";
+std::cout << "Timemod remsec [" << remsec(i) << "]: ";
 if(remsec(i) == 29 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
-cout << "Timemod addseconds: ";
+std::cout << "Timemod addseconds: ";
 if(addseconds(2,2,29) == i )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
 
@@ -206,94 +206,105 @@ else
 /* Unused class
 // Timestore
 timestore ts1;
-cout << "*--------Timestore class" << endl;
+std::cout << "*--------Timestore class" << std::endl;
 i = 2;
 //Gets and sets
-cout << "Timestore Hour get/set: ";
+std::cout << "Timestore Hour get/set: ";
 ts1.setHour(i);
 if(ts1.getHour() == i )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 
-cout << "Timestore Minute get/set: ";
+std::cout << "Timestore Minute get/set: ";
 ts1.setMinute(i);
 if(ts1.getMinute() == i )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
-cout << "Timestore Second get/set: ";
+std::cout << "Timestore Second get/set: ";
 ts1.setSecond(i);
 if(ts1.getSecond() == i )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 // Parameterized (seconds only)
 i = 7349;
 timestore ts2(i);
-cout << "Paramaterized constructor (seconds only) [" << ts2.getHour() << ":" << ts2.getMinute() << ":" << ts2.getSecond() << "]: ";
+std::cout << "Paramaterized constructor (seconds only) [" << ts2.getHour() << ":" << ts2.getMinute() << ":" << ts2.getSecond() << "]: ";
 if(ts2.getHour() == 2 && ts2.getMinute() == 2 && ts2.getSecond() == 29 )
 {
-	cout << "Pass" << endl; 
+	std::cout << "Pass" << std::endl; 
 }
 else
 {
-	cout << "Fail" << endl; 
+	std::cout << "Fail" << std::endl; 
 }
 */
 
 // Catalog from external file
-cout << "*--------Catalog and catalog files" << endl;
+std::cout << "*--------Catalog and catalog files" << std::endl;
 Catalog testcat;
 openCatalog("Example.setlist",&testcat);
-cout << "Catalog read from file: ";
+std::cout << "Catalog read from file: ";
 if(testcat.getSong(0).getTitle().compare("Chocolate Rain") == 0 )
 {
-	cout << "Pass\n"; 
+	std::cout << "Pass\n"; 
 }
 else
 {
-	cout << "Fail\n"; 
+	std::cout << "Fail\n"; 
 }
 
 // Duplication
 
-cout << "Catalog Duplicate: "  ;
+std::cout << "Catalog Duplicate: "  ;
 Catalog testcat2;
 testcat.duplicate(&testcat2);
 if(testcat.getSong(0).getTitle().compare(testcat2.getSong(0).getTitle()) == 0 )
 {
-	cout << "Pass\n"; 
+	std::cout << "Pass\n"; 
 }
 else
 {
-	cout << "Fail\n"; 
+	std::cout << "Fail\n"; 
 }
 
 testcat.sort_title();
 for(unsigned int i = 0; i < testcat.size(); i++ )
 {
-	cout << testcat.getSongptr(i)->getTitle() << endl; 
+	std::cout << testcat.getSongptr(i)->getTitle() << std::endl; 
 }
 SongSelector testselector(&testcat);
 testselector.printList();
-waitenter();
+// waitenter();
 for(unsigned int i = 0; i < testcat.size(); i++ )
 {
-	cout << testcat.getSongptr(i)->getTitle() << endl; 
+	std::cout << testcat.getSongptr(i)->getTitle() << std::endl; 
 }
+std::cout << "----------------------------------------------------------\n";
+Song* ptr = &testsong;
+for(int i = 0; ptr != NULL; i++  )
+{
+	ptr = testselector.nextSong(ptr, i);
+	if (ptr != NULL)
+	std::cout << ptr->toString() << std::endl;
+}
+
+std::cout << "----------------------------------------------------------\n";
+testselector.printList();
 return 0;
 }
 
@@ -301,7 +312,7 @@ return 0;
 /*
 void waitenter(void)
 {
-	cout << "Press enter to continue" << endl;
+	std::cout << "Press enter to continue" << std::endl;
 	while (cin.get() != '\n');
 	return;
 }

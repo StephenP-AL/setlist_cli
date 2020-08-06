@@ -17,11 +17,13 @@ class SongSelector
 	private:
 		std::list<Song*> sslist;
 		std::list<Song*>::iterator it;
+		bool method;
 	public:
 		SongSelector();
 		~SongSelector();
 		SongSelector(Catalog *cat);
 		void build(Catalog *cat);
 		void printList();
+		Song* nextSong(Song* previous, unsigned int index);
 };
 #endif
