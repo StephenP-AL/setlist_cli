@@ -9,7 +9,7 @@
 #include "song.h"
 #include <fstream>
 #include <string.h>
-using namespace std;
+//using namespace std;
 
 // Definitions
 // #define DEBUG
@@ -23,11 +23,11 @@ void openCatalog(std::string path,Catalog *open)
 	std::string line;
 	unsigned int size; // This is for resizing the vector, which is not implemented
 	Song *songptr;
-	ifstream infile;
+	std::ifstream infile;
 	infile.open(path);
 	if(!infile )
 	{
-		cout << "Unable to open '" << path << "'\n";	 
+		std::cout << "Unable to open '" << path << "'\n";	 
 		delete songptr;
 		return;
 	}
@@ -35,7 +35,7 @@ void openCatalog(std::string path,Catalog *open)
 	{
 #ifdef DEBUG
 	printf("%s","---DEBUG---Opening ");
-	cout << path << endl;
+	std::cout << path << std::endl;
 #endif
 		while(!infile.eof() && line.substr(0,4).compare("#eof") != 0)
 		{
@@ -151,27 +151,27 @@ void openCatalog(std::string path,Catalog *open)
 
 void writeCatalog(std::string path, Catalog *out)
 {
-	ofstream outfile;
+	std::ofstream outfile;
 	outfile.open(path);
 	if(!outfile )
 	{
-		cout << "Unable to open '" << path << "'" << endl; 
+		std::cout << "Unable to open '" << path << "'" << std::endl; 
 	}
-	outfile << "catalog_size:" << out->size() << endl << endl;
+	outfile << "catalog_size:" << out->size() << std::endl << std::endl;
 	for(unsigned int i = 0; i < out->size(); i++ )
 	{
-		outfile << "#song" << endl;
-		outfile << "title:" << out->getSong(i).getTitle() << endl;
-		outfile << "composer:" << out->getSong(i).getComposer() << endl;
-		outfile << "key:" << out->getSong(i).getKey() << endl;
-		outfile << "genre:" << out->getSong(i).getGenre() << endl;
-		outfile << "length:" << out->getSong(i).getLength() << endl;
-		outfile << "tempo:" << out->getSong(i).getTempo() << endl;
-		outfile << "intro:" << out->getSong(i).getIntro() << endl;
-		outfile << "archive:" << out->getSong(i).isArchive() << endl;
+		outfile << "#song" << std::endl;
+		outfile << "title:" << out->getSong(i).getTitle() << std::endl;
+		outfile << "composer:" << out->getSong(i).getComposer() << std::endl;
+		outfile << "key:" << out->getSong(i).getKey() << std::endl;
+		outfile << "genre:" << out->getSong(i).getGenre() << std::endl;
+		outfile << "length:" << out->getSong(i).getLength() << std::endl;
+		outfile << "tempo:" << out->getSong(i).getTempo() << std::endl;
+		outfile << "intro:" << out->getSong(i).getIntro() << std::endl;
+		outfile << "archive:" << out->getSong(i).isArchive() << std::endl;
 		// Sample line below
-//		outfile << "<++>" << out->getSong(i).get<++>() << endl;
-		outfile << "#gnos" << endl << endl;
+//		outfile << "<++>" << out->getSong(i).get<++>() << std::endl;
+		outfile << "#gnos" << std::endl << std::endl;
 		 
 		
 	}
@@ -184,7 +184,7 @@ void writeCatalog(std::string path, Catalog *out)
 
 void waitenter(void)
 {
-	cout << "Press enter to continue" << endl;
-	while (cin.get() != '\n');
+	std::cout << "Press enter to continue" << std::endl;
+	while (std::cin.get() != '\n');
 	return;
 }
