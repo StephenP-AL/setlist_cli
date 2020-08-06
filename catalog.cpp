@@ -10,6 +10,8 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+//
+//using namespace std;
 Catalog::Catalog()
 {
 }
@@ -73,15 +75,15 @@ void Catalog::sort_genre()
 {
 	std::sort(cat.begin(), cat.end(), [](Song* a, Song* b)
 		{
-			string genrea = catalogSortFormat(a->getGenre());
-			string genreb = catalogSortFormat(b->getGenre());
-			string compa = catalogSortFormat(a->getComposer());
-			string compb = catalogSortFormat(b->getComposer());
-			string titlea = catalogSortFormat(a->getTitle());
-			string titleb = catalogSortFormat(b->getTitle());
+			std::string genrea = catalogSortFormat(a->getGenre());
+			std::string genreb = catalogSortFormat(b->getGenre());
+			std::string compa = catalogSortFormat(a->getComposer());
+			std::string compb = catalogSortFormat(b->getComposer());
+			std::string titlea = catalogSortFormat(a->getTitle());
+			std::string titleb = catalogSortFormat(b->getTitle());
 			if(genrea.compare(genreb) != 0 )
 			{
-				cout << genrea << " | " << genreb << " " << (genrea.compare(genreb) < 0) << endl;
+			//	std::cout << genrea << " | " << genreb << " " << (genrea.compare(genreb) < 0) << std::endl;
 
 				return(genrea.compare(genreb) < 0); 
 			}
@@ -103,10 +105,10 @@ void Catalog::sort_composer()
 {
 	std::sort(cat.begin(), cat.end(), [](Song* a, Song* b)
 		{
-			string compa = catalogSortFormat(a->getComposer());
-			string compb = catalogSortFormat(b->getComposer());
-			string titlea = catalogSortFormat(a->getTitle());
-			string titleb = catalogSortFormat(b->getTitle());
+			std::string compa = catalogSortFormat(a->getComposer());
+			std::string compb = catalogSortFormat(b->getComposer());
+			std::string titlea = catalogSortFormat(a->getTitle());
+			std::string titleb = catalogSortFormat(b->getTitle());
 			if(compa.compare(compb) == 0 )
 			{
 				return(titlea.compare(titleb) < 0);
@@ -126,8 +128,8 @@ void Catalog::sort_title()
 {
 	std::sort(cat.begin(), cat.end(), [](Song* a, Song* b)
 		{
-			string titlea = catalogSortFormat(a->getTitle());
-			string titleb = catalogSortFormat(b->getTitle());
+			std::string titlea = catalogSortFormat(a->getTitle());
+			std::string titleb = catalogSortFormat(b->getTitle());
 			return(titlea.compare(titleb) < 0);
 		} );
 	return;
@@ -173,7 +175,7 @@ void Catalog::printSongs()
 	for(int i = 0; i < cat.size(); ++i )
 	{
 		
-		cout << cat[i]->toString() << endl; 
+		std::cout << cat[i]->toString() << std::endl; 
 	}
 }
 

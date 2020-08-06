@@ -17,10 +17,10 @@ using namespace std;
 
 
 
-void openCatalog(string path,Catalog *open)
+void openCatalog(std::string path,Catalog *open)
 {
 	
-	string line;
+	std::string line;
 	unsigned int size; // This is for resizing the vector, which is not implemented
 	Song *songptr;
 	ifstream infile;
@@ -149,7 +149,7 @@ void openCatalog(string path,Catalog *open)
 	
 }
 
-void writeCatalog(string path, Catalog *out)
+void writeCatalog(std::string path, Catalog *out)
 {
 	ofstream outfile;
 	outfile.open(path);

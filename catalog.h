@@ -9,12 +9,12 @@
 // Headers
 #include "song.h"
 #include <vector>
-using namespace std;
+// using namespace std;
 
 class Catalog
 {
 	private:
-		vector<Song*> cat;
+		std::vector<Song*> cat;
 		unsigned int iterator;
 	public:
 		Catalog();
