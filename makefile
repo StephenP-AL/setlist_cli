@@ -1,2 +1,2 @@
-unittest: unittest.cpp song.cpp timemod.cpp catalog.cpp fileio.cpp songselector.cpp
-	g++ -o test unittest.cpp song.cpp timemod.cpp catalog.cpp fileio.cpp songselector.cpp
+unittest: unittest.cpp song.cpp timemod.cpp catalog.cpp fileio.cpp songselector.cpp setlist.cpp
+	g++ -o test unittest.cpp song.cpp timemod.cpp catalog.cpp fileio.cpp songselector.cpp setlist.cpp
