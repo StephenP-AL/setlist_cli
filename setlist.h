@@ -35,7 +35,7 @@ class Setlist : public Catalog
 		void setBreakLength(unsigned int bl);
 		unsigned int getBreakLength();
 };
-
+bool genreCompare(std::string a, std::string b);
 
 
 

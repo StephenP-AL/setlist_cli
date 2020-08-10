@@ -61,6 +61,7 @@ void SongSelector::build(Catalog *cat)
 	return;
 }
 
+
 void SongSelector::printList()
 {
 	it = sslist.begin();
@@ -75,7 +76,14 @@ Song* SongSelector::nextSong(Song* previous, unsigned int index)
 {
 	it = sslist.begin();
 //	Song* ret = NULL;
-	if((index + method) % 2 == 0 )
+	if(previous == NULL )
+	{
+		Song* ret = (Song*)*it;
+		sslist.erase(it);
+		return(ret);
+	}
+	
+	else if((index + method) % 2 == 0 )
 	{
 		for(Song* ret = NULL; it != sslist.end(); it++ )
 		{
