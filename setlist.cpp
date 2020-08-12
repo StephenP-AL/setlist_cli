@@ -55,7 +55,7 @@ void Setlist::populate(SongSelector select)
 	unsigned int playSegment = Length / (BreakCount + 1);
 	unsigned int index;
 	Song* prev = NULL;
-	std::cout << this->currentLength() << " | " << Length << '\n';
+//	std::cout << this->currentLength() << " | " << Length << '\n';
 	while(this->currentLength() < Length )
 	{
 	
@@ -145,6 +145,7 @@ unsigned int Setlist::getBreakCount()
 void Setlist::setBreakLength(unsigned int bl)
 {
 	BreakLength = bl;
+	intermission->setLength(bl);
 	return;
 }
 

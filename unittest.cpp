@@ -295,6 +295,7 @@ Setlist testsetlist;
 testsetlist.setLength(3600);
 testsetlist.setBreakCount(3);
 testsetlist.setBreakLength(60);
+std::cout << testsetlist.getBreakLength() << std::endl;
 testsetlist.populate(testselector);
 testsetlist.printSongs();
 

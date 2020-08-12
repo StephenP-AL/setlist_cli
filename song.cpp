@@ -156,6 +156,12 @@ std::string Song::toString()
 	{
 		arc = "Archive: True"; 
 	}
-	
-	return(Title + a + Composer + a + Key + a + Genre + a + arc + a + "Length:" + std::to_string(Length) + a + "Tempo:" + std::to_string(Tempo) + a + "Intro:" + std::to_string(Intro) );
+	if(Tempo == -1)
+	{
+		return(Title + a + "Length:" + std::to_string(Length));
+	}
+	else
+	{
+		return(Title + a + Composer + a + Key + a + Genre + a + arc + a + "Length:" + std::to_string(Length) + a + "Tempo:" + std::to_string(Tempo) + a + "Intro:" + std::to_string(Intro) );
+	}
 }
