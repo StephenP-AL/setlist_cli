@@ -1,6 +1,7 @@
 /*
  * setlist.cpp
  */
+#define DEBUG
 
 #include "setlist.h"
 #include "songselector.h"
@@ -14,11 +15,16 @@ Setlist::Setlist()
 	Length = 0;
 	BreakCount = 0;
 	BreakLength = 0;
+	intermission = new Song;
+	intermission->setLength(0);
+	intermission->setTempo(-1);
+	intermission->setTitle("Intermission");
 }
 
 Setlist::~Setlist()
 {
 	delete intermission;
+	this->noClearOnExit();//FIX THIS
 }
 
 Setlist::Setlist(unsigned int l, unsigned int c, unsigned int bl, SongSelector select)
@@ -49,8 +55,10 @@ void Setlist::populate(SongSelector select)
 	unsigned int playSegment = Length / (BreakCount + 1);
 	unsigned int index;
 	Song* prev = NULL;
+	std::cout << this->currentLength() << " | " << Length << '\n';
 	while(this->currentLength() < Length )
 	{
+	
 		// Adapted from java, not sure if will work
 		for(int i = 0; i < BreakCount; i++ )
 		{

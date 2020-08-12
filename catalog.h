@@ -2,6 +2,16 @@
  * Defines Catalog class
  */
 
+
+
+/**********************************************************
+ * NEED TO FIX:
+ * clearOnExit is a bad solution because I don't know how to 
+ * properly override the parent class deconstructor.
+ * I need subclass setlist to not delete all pointers in the vector
+ * but parent class should.
+************************************************************/
+
 // Definitions
 #ifndef CATALOG_H
 #define CATALOG_H
@@ -14,6 +24,7 @@
 class Catalog
 {
 	private:
+		bool clearOnExit; // FIX THIS
 		std::vector<Song*> cat;
 		unsigned int iterator;
 	public:
@@ -31,6 +42,7 @@ class Catalog
 		void clear();
 		unsigned int size();
 		void expand(unsigned int size);
+		void noClearOnExit(); // FIX THIS
 };
 std::string catalogSortFormat(std::string instring);
 #endif

@@ -12,6 +12,7 @@
 #include <vector>
 #include <list>
 #include "songselector.h"
+#include "setlist.h"
 using namespace std;
 
 //Preprocessor Definitions
@@ -282,29 +283,22 @@ else
 	std::cout << "Fail\n"; 
 }
 
-testcat.sort_title();
-for(unsigned int i = 0; i < testcat.size(); i++ )
-{
-	std::cout << testcat.getSongptr(i)->getTitle() << std::endl; 
-}
-SongSelector testselector(&testcat);
-testselector.printList();
-// waitenter();
-for(unsigned int i = 0; i < testcat.size(); i++ )
-{
-	std::cout << testcat.getSongptr(i)->getTitle() << std::endl; 
-}
-std::cout << "----------------------------------------------------------\n";
-Song* ptr = &testsong;
-for(int i = 0; ptr != NULL; i++  )
-{
-	ptr = testselector.nextSong(ptr, i);
-	if (ptr != NULL)
-	std::cout << ptr->toString() << std::endl;
-}
 
-std::cout << "----------------------------------------------------------\n";
-testselector.printList();
+
+
+//****************************************************************************
+// Informal testing
+
+testcat.sort_title();
+SongSelector testselector(&testcat);
+Setlist testsetlist;
+testsetlist.setLength(3600);
+testsetlist.setBreakCount(3);
+testsetlist.setBreakLength(60);
+testsetlist.populate(testselector);
+testsetlist.printSongs();
+
+
 return 0;
 }
 

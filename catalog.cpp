@@ -14,10 +14,15 @@
 //using namespace std;
 Catalog::Catalog()
 {
+	clearOnExit = true;
 }
 Catalog::~Catalog()
 {
-	Catalog::clear();
+	// FIX THIS
+	if(clearOnExit )
+	{
+		Catalog::clear();
+	}
 }
 void Catalog::duplicate(Catalog *dup)
 {
@@ -83,8 +88,6 @@ void Catalog::sort_genre()
 			std::string titleb = catalogSortFormat(b->getTitle());
 			if(genrea.compare(genreb) != 0 )
 			{
-			//	std::cout << genrea << " | " << genreb << " " << (genrea.compare(genreb) < 0) << std::endl;
-
 				return(genrea.compare(genreb) < 0); 
 			}
 			else if(compa.compare(compb) == 0 )
@@ -171,7 +174,6 @@ Song Catalog::getSong(unsigned int i)
 // Prints all songs for testing purposes
 void Catalog::printSongs()
 {
-	
 	for(int i = 0; i < cat.size(); ++i )
 	{
 		
@@ -204,4 +206,10 @@ void Catalog::expand(unsigned int size)
 {
 	cat.reserve(cat.size() + size);
 	return;
+}
+
+//FIX THIS
+void Catalog::noClearOnExit()
+{
+	clearOnExit = false;
 }

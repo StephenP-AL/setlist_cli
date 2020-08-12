@@ -33,8 +33,7 @@ void SongSelector::build(Catalog *cat)
 	// take songs and randomize order
 	
 	unsigned seed = time(NULL);
-	method = seed % 2;
-	std::cout << method << std::endl;
+	method = seed % 2; // Determines if even or odd index is evaluated by tempo or key
 	vector<Song*> shuffler;
 
 	for(unsigned int i = 0; i < cat->size(); i++ )
@@ -75,7 +74,6 @@ void SongSelector::printList()
 Song* SongSelector::nextSong(Song* previous, unsigned int index)
 {
 	it = sslist.begin();
-//	Song* ret = NULL;
 	if(previous == NULL )
 	{
 		Song* ret = (Song*)*it;
