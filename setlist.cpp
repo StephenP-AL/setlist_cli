@@ -7,6 +7,8 @@
 #include "songselector.h"
 #include "song.h"
 #include "catalog.h"
+#include <iostream>
+#include <sstream>
 
 // Constructors
 Setlist::Setlist()
@@ -117,6 +119,13 @@ unsigned int Setlist::currentLength()
 // Sets and gets
 void Setlist::setGenreRestrict(std::string in)
 {
+	stringstream stream(in);
+	while(stream.good() )
+	{
+		std::string a;
+	       	getline(stream, a, ',');	
+		GenreRestrict.push_back(a);
+	}
 	return;
 }
 

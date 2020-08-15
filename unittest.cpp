@@ -298,7 +298,7 @@ testsetlist.setBreakLength(60);
 std::cout << testsetlist.getBreakLength() << std::endl;
 testsetlist.populate(testselector);
 testsetlist.printSongs();
-
+testsetlist.setGenreRestrict("pop,rock,jazz,blues");
 
 return 0;
 }
