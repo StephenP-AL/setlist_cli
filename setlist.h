@@ -23,8 +23,10 @@ class Setlist : public Catalog
 	public:
 		Setlist();
 		~Setlist();	
-		Setlist(unsigned int l, unsigned int c, unsigned int bl, SongSelector select);
-		Setlist(unsigned int l, unsigned int c, unsigned int bl, Catalog* cat);
+		Setlist(unsigned int length, unsigned int breakcount, unsigned int breaklength, 
+				std::string genrerestrict, SongSelector select);
+		Setlist(unsigned int length, unsigned int breakcount, unsigned int breaklength, 
+				std::string genrerestrict, Catalog* cat);
 		void setGenreRestrict(std::string in);
 		void populate(SongSelector select);
 		void populate(Catalog* cat);

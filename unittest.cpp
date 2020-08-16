@@ -291,13 +291,14 @@ else
 
 testcat.sort_title();
 SongSelector testselector(&testcat);
-Setlist testsetlist;
-testsetlist.setGenreRestrict("dance,disco,pop,rock,jazz,blues");
+Setlist testsetlist(3600,3,300,"dance,disco,pop,rock,blues",&testcat);
+/*testsetlist.setGenreRestrict("dance,disco,pop,rock,jazz,blues");
 testsetlist.setLength(3600);
 testsetlist.setBreakCount(3);
 testsetlist.setBreakLength(300);
 //testsetlist.populate(testselector);
 testsetlist.populate(&testcat);
+*/
 std::cout << "******************************************\n";
 testsetlist.printSongs();
 return 0;

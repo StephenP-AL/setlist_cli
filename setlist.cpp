@@ -30,25 +30,31 @@ Setlist::~Setlist()
 	this->noClearOnExit();//FIX THIS
 }
 
-Setlist::Setlist(unsigned int l, unsigned int c, unsigned int bl, SongSelector select)
+Setlist::Setlist(unsigned int length, unsigned int breakcount, unsigned int breaklength, 
+				std::string genrerestrict, SongSelector select)
 {
-	Length = l;
-	BreakCount = c;
-	BreakLength = bl;
+	Length = length;
+	BreakCount = breakcount;
+	BreakLength = breaklength;
+	setGenreRestrict(genrerestrict);
 	intermission = new Song;
-	intermission->setLength(bl);
+	intermission->setLength(breaklength);
 	intermission->setTempo(-1);
 	intermission->setTitle("Intermission");
+	this->populate(select);
 }
-Setlist::Setlist(unsigned int l, unsigned int c, unsigned int bl, Catalog* cat)
+Setlist::Setlist(unsigned int length, unsigned int breakcount, unsigned int breaklength, 
+				std::string genrerestrict, Catalog* cat)
 {
-	Length = l;
-	BreakCount = c;
-	BreakLength = bl;
+	Length = length;
+	BreakCount = breakcount;
+	BreakLength = breaklength;
+	setGenreRestrict(genrerestrict);
 	intermission = new Song;
-	intermission->setLength(bl);
+	intermission->setLength(breaklength);
 	intermission->setTempo(-1);
 	intermission->setTitle("Intermission");
+	this->populate(cat);
 }
 
 // Populators
