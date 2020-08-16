@@ -2,6 +2,7 @@
  * setlist.cpp
  */
 #define DEBUG
+#define DEBUG1
 
 #include "setlist.h"
 #include "songselector.h"
@@ -57,11 +58,8 @@ void Setlist::populate(SongSelector select)
 	unsigned int playSegment = Length / (BreakCount + 1);
 	unsigned int index;
 	Song* prev = NULL;
-//	std::cout << this->currentLength() << " | " << Length << '\n';
 	while(this->currentLength() < Length )
 	{
-	
-		// Adapted from java, not sure if will work
 		for(int i = 0; i < BreakCount; i++ )
 		{
 			if(!*(breakState + i) && (currentLength() > (playSegment * (i + 1) - (BreakLength / 2))))
@@ -76,18 +74,24 @@ void Setlist::populate(SongSelector select)
 		bool reject = false;
 		for(int i = 0; i < GenreRestrict.size(); i++ )
 		{
-			 if(genreCompare(GenreRestrict[i], next->getGenre() ))
+
+			
+			 if(!genreCompare(GenreRestrict[i], next->getGenre() ))
 			 {
+#ifdef DEBUG
+				 printf("%s","---DEBUG---SETLIST rejected: incorrect genre: " );
+				 std::cout << next->getGenre() << std::endl;
+#endif
+				 
 				reject = true;
 				break; 
 			 }
-			 
 		}
 		if(!reject )
 		{
 			index++;
 			this->addSong(next);
-			next = prev;
+			prev = next;
 	 	}
 	 
 
@@ -97,12 +101,22 @@ void Setlist::populate(SongSelector select)
 }
 void Setlist::populate(Catalog* cat)
 {
+	SongSelector select(cat);
+	this->populate(select);
 	return;
 }
 
 bool genreCompare(std::string a, std::string b)
 {
-	return false;
+	return true;
+	if(catalogSortFormat(a).compare(catalogSortFormat(b)) == 0 )
+	{
+		return true; 
+	}
+	else	
+	{
+		return false;
+	}
 }
 
 unsigned int Setlist::currentLength()
@@ -119,6 +133,7 @@ unsigned int Setlist::currentLength()
 // Sets and gets
 void Setlist::setGenreRestrict(std::string in)
 {
+	GenreRestrict.clear();
 	stringstream stream(in);
 	while(stream.good() )
 	{
@@ -126,6 +141,15 @@ void Setlist::setGenreRestrict(std::string in)
 	       	getline(stream, a, ',');	
 		GenreRestrict.push_back(a);
 	}
+#ifdef DEBUG
+	std::cout << "---DEBUG--- Setlist GenreRestrict contents\n";
+	for(int i = 0; i < GenreRestrict.size(); i++ )
+	{
+		std::cout << GenreRestrict[i] << std::endl; 
+	}
+	
+#endif
+	
 	return;
 }
 
