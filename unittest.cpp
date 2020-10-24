@@ -13,6 +13,7 @@
 #include <list>
 #include "songselector.h"
 #include "setlist.h"
+#include "configmanager.h"
 using namespace std;
 
 //Preprocessor Definitions
@@ -284,8 +285,40 @@ else
 }
 
 
+// configmanager
 
-
+std::cout << "*--------Config Manager" << std::endl;
+ConfigManager config;
+config.setLastCatalog(blerg);
+std::cout << "LastCatalog set/get: ";
+if(config.getLastCatalog().compare(blerg) == 0)
+{
+	std::cout << "Pass" << std::endl; 
+}
+else
+{
+	std::cout << "Fail" << std::endl; 
+}
+config.setDefaultBreakLength(yerp);
+std::cout << "defaultBreakLength set/get: ";
+if(config.getDefaultBreakLength() == yerp )
+{
+	std::cout << "Pass" << std::endl; 
+}
+else
+{
+	std::cout << "Fail" << std :: endl; 
+}
+config.setDefaultBreakCount(yerp);
+std::cout << "defaultBreakCount set/get: ";
+if(config.getDefaultBreakCount() == yerp )
+{
+	std::cout << "Pass" << std::endl; 
+}
+else
+{
+	std::cout << "Fail" << std :: endl; 
+}
 //****************************************************************************
 // Informal testing
 
