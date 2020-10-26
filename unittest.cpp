@@ -319,6 +319,29 @@ else
 {
 	std::cout << "Fail" << std :: endl; 
 }
+config.setDefaultIntro(yerp);
+std::cout << "defaultIntro set/get: ";
+if(config.getDefaultIntro() == yerp )
+{
+	std::cout << "Pass" << std::endl; 
+}
+else
+{
+	std::cout << "Fail" << std :: endl; 
+}
+config.setDefaultSetLength(yerp);
+std::cout << "defaultSetLength set/get: ";
+if(config.getDefaultSetLength() == yerp )
+{
+	std::cout << "Pass" << std::endl; 
+}
+else
+{
+	std::cout << "Fail" << std :: endl; 
+}
+
+
+
 //****************************************************************************
 // Informal testing
 
