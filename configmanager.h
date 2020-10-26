@@ -29,8 +29,8 @@ class ConfigManager
 		int getDefaultIntro();
 		void setDefaultSetLength(int i);
 		int getDefaultSetLength();
-		void loadConfig();
-		void writeConfig();
+		void load();
+		void write();
 		std::string toString();
 };
 #endif

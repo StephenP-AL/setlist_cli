@@ -64,13 +64,31 @@ int ConfigManager::getDefaultSetLength()
 {
 	return defaultSetLength;
 }
-void ConfigManager::loadConfig()
+void ConfigManager::load()
 {
-	const char *file = getenv("HOME");
-	std::cout << "Load config stub " << file << std::endl;
+//	const char *file = getenv("HOME");
+	std::string file = getenv("HOME");
+	std::string file2 = "/.config/SetlistManager/settings.cfg";
+	file = file + file2;
+
+	std::string line;
+	std::ifstream infile;
+	infile.open(file);
+	if(!infile )
+	{
+		std::cout << "Unable to open configuration file: " << file << std::endl; 
+		return;
+	}
+	while(!infile.eof() )
+	{
+		getline(infile,line);
+       		std::cout << line << std::endl;		
+	}
+	
+	
 	return;
 }	
-void ConfigManager::writeConfig()
+void ConfigManager::write()
 {
 	std::cout << "Write config stub \n";
 	return;
