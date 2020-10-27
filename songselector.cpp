@@ -5,6 +5,7 @@
 // #define DEBUG
 
 // Headers
+#include "defaults.h"
 #include "catalog.h"
 #include "song.h"
 #include <list>
@@ -117,7 +118,7 @@ Song* SongSelector::nextSong(Song* previous, unsigned int index)
 				difference = previous->getTempo() - comp->getTempo(); 
 			}
 			ratio = difference / (double)previous->getTempo();
-			if(ratio > 0.1   )
+			if(ratio > TEMPO_TOLERANCE )
 			{
 				ret = *it;
 				sslist.erase(it);
