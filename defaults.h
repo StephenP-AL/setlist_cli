@@ -1,3 +1,6 @@
+/* deafaults.h
+ * Central repository for default values
+ */
 // Setlist default settings
 #define D_INTRO 5
 #define D_BRLENGTH 600
