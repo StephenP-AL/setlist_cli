@@ -4,6 +4,7 @@
 
 #include "configmanager.h"
 #include <iostream>
+#include "defaults.h"
 
 #define DEBUG
 /*
@@ -67,7 +68,6 @@ int ConfigManager::getDefaultSetLength()
 }
 void ConfigManager::load()
 {
-//	const char *file = getenv("HOME");
 	std::string file = getenv("HOME");
 	std::string file2 = "/.config/SetlistManager/settings.cfg";
 	file = file + file2;
@@ -93,22 +93,38 @@ void ConfigManager::load()
 		else if(line.substr(0,19).compare("defaultBreakLength=") == 0)
 		{
 			defaultBreakLength = stoi(line.substr(19,line.length()-19));
+
+#ifdef DEBUG
 			std::cout << " Set to : " << defaultBreakLength	<< std::endl;
+
+#endif
 		}
 		else if(line.substr(0,18).compare("defaultBreakCount=") == 0 )
 		{
 			defaultBreakCount = stoi(line.substr(18,line.length()-18));
+
+#ifdef DEBUG
 			std::cout << "Set to : " << defaultBreakCount << std::endl;	
+
+#endif
 		}
 		else if(line.substr(0,17).compare("defaultSetLength=") == 0 )
 		{
 			defaultSetLength = stoi(line.substr(17,line.length() - 17));
+
+#ifdef DEBUG
 			std::cout << "Set to : " << defaultSetLength << std::endl;
+
+#endif
 		}
 		else if(line.substr(0,13).compare("defaultIntro=") == 0 )
 		{
 			defaultIntro = stoi(line.substr(13,line.length() - 13));
+
+#ifdef DEBUG
 		       	std::cout << "Set to : " << defaultIntro << std::endl;	
+
+#endif
 		}
 		
 		
