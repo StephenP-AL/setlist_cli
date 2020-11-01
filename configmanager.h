@@ -16,6 +16,8 @@ class ConfigManager
 		int defaultBreakCount;
 		int defaultSetLength;
 		int defaultIntro;
+		bool initialize();
+		std::string configFile();
 	public:
 		ConfigManager();
 		~ConfigManager();
